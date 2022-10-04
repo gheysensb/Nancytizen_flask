@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}  
+<div class="contenu">
+        <form action="/add_dys" method="post" id="formulaire"> <!-- formulaire qui renvoie le résultat à /add_dys -->
+            <div id="titre"><h2><label for=dys_cat>Catégorie du dysfonctionnement : </label></h2>
+            <select required name="dys_cat" id="dys_cat"> <!-- permet de choisir dans une liste de catégorie de dysfonctionnements -->
+                <option disabled selected hidden value="">Choisissez une catégorie</option> <!-- permet de montrer un placeholder non sélectionnable -->
+                {% for i in list %}
+                <option value="{{ i }}">{{ i }}</option> <!-- affiche toutes les sortes de dysfonctionnements récupérées dans la database -->
+                {% endfor %}
+            </select></div>
+            <!-- les champs suivants permettent à l'utilisateur de donner son nom, prénom, un titre, une description, ainsi que l'endroit du dysfonctionnement -->
+            <div id="titre"><h2><label for="nom">Nom: </label></h2>
+            <input type="text" name="nom" id="nom" required placeholder="Nom"></div>
+            <div id="titre"><h2><label for="prenom">Prénom: </label></h2>
+            <input type="text" name="prenom" id="prenom" required placeholder="Prénom"></div>
+            <div id="titre"><h2><label for="title">Titre : </label></h2>
+            <input type="text" name="title" id="title" required placeholder="Titre"></div>
+            <div id="contenu"><h2><label for="description">Description : </label></h2>
+            <input type="text" id="description" name="description" required placeholder="Description"></div>
+            <div id="titre"><h2><label for="adresse">Adresse : </label></h2>
+            <input type="text" name="adresse" id="adresse" required placeholder="Numéro, rue, ville, et pays"></div>
+            <br><input type="submit" value="Envoyer"> <!-- envoie le formulaire à la database -->
+      </form> 
+</div>
+{% endblock %}

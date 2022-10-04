@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="contenu">
+    <div id="formulaire">
+    <form action="/ideaBox/createIdea" method="POST">
+        <div id="titre">
+            <p>
+        <h1>Titre :</h1> </p>
+        <input type="text" name='titre' placeholder="titre">
+    </div>
+        <div id="contenu">
+             <p>
+        <h1>Contenu :</h1> </p>
+            <input type="text" name='Description' placeholder="Description">
+        </div>
+        <p>
+            <input type="submit" value="Créer">
+        </p>
+<div id="colonne2">
+
+</div>
+</form>
+</div>
+</div>
+{% endblock %}

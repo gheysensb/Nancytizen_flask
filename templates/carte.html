@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="contenu">
+<div class='Carte' >
+    <p>
+        <h1>
+        Carte des signalements
+</h1>
+    </p>
+
+<iframe id="inlineFrameExample"
+        title="Inline Frame Example"
+        width="800"
+        height="533.33"
+        src={{url_for('static', filename='maCarte.html')}}>
+</iframe>
+    <p>
+    <form action="/signal" method="POST">
+        <input type="checkbox" id="Traité" name="Traité" value="Traité" checked>
+  <label for="Traité"> Traité</label>
+        <input type="checkbox" id="Non Traité" name="Non Traité" value="Non Traité" checked>
+  <label for="Non Traité"> Non Traité</label>
+        <input type="checkbox" id="En cours de traitement" name="En cours de traitement" value="En cours de traitement" checked>
+  <label for="En cours de traitement"> En cours de traitement</label>
+        <div id="bouton">
+    <input type="submit" value="Filtrer">
+</div>
+
+    </form>
+</p>
+</div>
+
+</div>
+
+{% endblock %}

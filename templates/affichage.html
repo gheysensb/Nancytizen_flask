@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="contenu">
+<p>
+    <div id ="tab">
+    <table>
+    <thead>
+        <tr>
+            <th><b>Titre</b></th>
+            <th><b>Catégorie</b></th>
+            <th><b>Date</b></th>
+            <th><b>Statut</b></th>
+            <th><b></b></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tpl in curs %}
+        <tr>
+            <td><b>{{ tpl[0] }}</td>
+            <td>{{ tpl[1] }}</td>
+            <td>{{ tpl[2] }}</td>
+            <td>{{ tpl[3] }}</td>
+            
+            <td><a href="/details_dysfonctionnement/{{ tpl[4] }}">Détails</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    </div>
+</p>
+</div>
+{% endblock %}

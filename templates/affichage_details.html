@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="contenu">
+    <div id ="tab">
+    <table>
+    <thead>
+        <tr>
+            <th><b>Signalé par</b></th>
+            <th><b>Titre</b></th>
+            <th><b>Catégorie</b></th>
+            <th><b>Description</b></th>
+            <th><b>Date</b></th>
+            <th><b>Statut</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tpl in curs %}
+        <tr>
+            <td><b>{{ tpl[0] }} {{ tpl[1] }}</b></td>
+            <td>{{ tpl[2] }}</td>
+            <td>{{ tpl[3] }}</td>
+            <td><div class="justifier">{{ tpl[4] }}</div></td>
+            <td>{{ tpl[5] }}</td>
+            <td><p>{{ tpl[6] }}</p> 
+                <br><p> <form action="/change_statut/{{ tpl[7] }}" method="post">
+                <select name="status" id="status">
+                    <option value="Non Traité">Non traité</option>
+                    <option value="En cours de traitement">En cours de traitement</option>
+                    <option value="Traité">Traité</option>
+                </select>
+                <button type="submit">Changer le statut</button>
+            </form></p></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    </div>
+    <div class="Carte">
+    <iframe id="inlineFrameExample"
+        title="Inline Frame Example"
+        width="800"
+        height="533.33"
+        src={{url_for('static', filename='maCarte.html')}}>
+</iframe>
+        <p>
+    <form action="/details_dysfonctionnement/{{ iden }}" method="POST">
+        <input type="checkbox" id="Traité" name="Traité" value="Traité" checked>
+  <label for="Traité"> Traité</label>
+        <input type="checkbox" id="Non Traité" name="Non Traité" value="Non Traité" checked>
+  <label for="Non Traité"> Non Traité</label>
+        <input type="checkbox" id="En cours de traitement" name="En cours de traitement" value="En cours de traitement" checked>
+  <label for="En cours de traitement"> En cours de traitement</label>
+        <div id="bouton">
+    <input type="submit" value="Filtrer">
+</div>
+
+    </form>
+</p>
+    </div>
+</div>
+
+
+{% endblock %}

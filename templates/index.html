@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div style="flex: 1 0 auto;">
+<div id="acceuil">
+    <div id='bouton_dys'>
+        <center>
+        <a href="/voir_dysfonctionnements">Signalements</a>
+        <p>Cette fonctionnalité permet de faire remonter des problèmes à la mairie ainsi que de les situer sur une carte. Il est aussi possible de voir les détails liés à chaque signalement.</p>
+        </center>
+    </div>
+    <div id='bouton_idea'>
+        <div id="cadre">
+        <center>
+        <a href="/ideaBox/0">Boîte à idées</a>
+        <p>Cette fonctionnalité permet de soumettre une idée à la commune qui pourra l'étudier par la suite. Elle permet aussi de voir et soutenir les autres idées.</p>
+        </center>
+        </div>
+    </div>
+</div>
+<br>
+</div>
+{% endblock %}

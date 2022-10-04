@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="contenu">
+    <div id="bouton">
+    <p>
+    <form action="/ideaBox/createIdea">
+        <input type='submit' value="Ajouter idée">
+    </form>
+</p>
+    </div>
+<div id="bouton">
+    <p>
+    {% if page == 0 %}
+    <form action="/ideaBox/1">
+        <input type='submit' value="Classer selon la popularité">
+    </form>
+    {% else %}
+    <form action="/ideaBox/0">
+        <input type='submit' value="Classer selon la date">
+    </form>
+    {% endif %}
+</p>
+    </div>
+<p>
+    <div id ="tab">
+    <table>
+    <thead>
+        <tr>
+            <th><b>Titre</b></th>
+            <th><b>Contenu</b></th>
+            <th><b>Date</b></th>
+            <th><b>Like</b></th>
+            <th><b>Dislike</b></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in idea %}
+        <tr>
+            <td><b>{{ i[0] }}</b></td>
+            <td>{{ i[1] }}</td>
+            <td>{{ i[2] }}</td>
+            <td>{{ i[3] }}<a href='/ideaBox/fav/{{i[5]}}'><img alt='like' src="{{url_for('static', filename='like.png')}}"></a></td>
+            <td>{{ i[4] }}<a href='/ideaBox/unfav/{{i[5]}}'><img alt='dislike' src="{{url_for('static', filename='dislike.png')}}"></a></td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    </div>
+</p>
+</div>
+{% endblock %}

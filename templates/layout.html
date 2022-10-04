@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+    <head>
+        <title>NANCYTIZEN</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/CS.css')}}" />
+    </head>
+    <body>
+        <div id=header>
+            <a href="/"> <img alt='logo' src="{{url_for('static', filename='logonc.png')}}" width="150px" height="150px"></a><div id='parallelogram'></div><p style="margin-left: 30px;"></p><h1 font='Algerian'>  NANCYTIZEN</h1>
+        </div>
+        <nav>
+            <a href='/signal'> Carte</a>
+            <a href=/ajouter_dysfonctionnement> Ajout</a>
+            <a href=/voir_dysfonctionnements> Dysfonctionnements</a>
+            <a href='/ideaBox/0'>Boîte à idées</a>
+        </nav>
+    {% block body %}{% endblock %}
+        <footer>
+            <div id="contenu-footer">
+                <div id="firsthalf">
+                    <div id="desc">
+                        <span>telecom nancy</span>
+                        <p>promo 2024</p>
+                    </div>
+                    <div id="membres">
+                        <span>groupe e23</span>
+                        <p style="margin-bottom: 0px;">Armand Bouveron</p>
+                        <p class="list">Thibaut Cagnon</p>
+                        <p class="list">Nicolas Garcia-Forest</p>
+                        <p class="list">Baptiste Gheysens</p>
+                    </div>
+                </div>
+                <div id="secondhalf">
+                    <div id="logo">
+                        <img src="{{url_for('static', filename='logo_tn.png')}}">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
